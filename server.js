@@ -1,25 +1,44 @@
 const express = require('express');
 const {graphqlHTTP} = require('express-graphql');
-const {buildSchema} = require('graphql');
+const graphql = require('graphql');
 
-// Construct a schema, using GraphQL schema language
-const schema = buildSchema(`
-  type Query {
-    hello: String
-  }
-`);
-
-// The root provides a resolver function for each API endpoint
-const root = {
-    hello: () => {
-        return 'Hello world!';
+const fakeDatabase = {
+    1: {
+        id: 1,
+        name: 'Parmesan',
+        description: 'Its just a cheese!',
     },
-};
+}
+
+const cheeseType = new graphql.GraphQLObjectType({
+    name: 'Cheese',
+    fields: {
+        id: {type: graphql.GraphQLID},
+        name: {type: graphql.GraphQLString},
+        description: {type: graphql.GraphQLString}
+    }
+});
+
+const queryType = new graphql.GraphQLObjectType({
+    name: 'Query',
+    fields: {
+        cheese: {
+            type: cheeseType,
+            args: {
+                id: {type: graphql.GraphQLID}
+            },
+            resolve: (_, {id}) => {
+                return fakeDatabase[id];
+            }
+        }
+    }
+})
+
+const schema = new graphql.GraphQLSchema({query: queryType})
 
 const app = express();
 app.use('/cheeseapi', graphqlHTTP({
     schema: schema,
-    rootValue: root,
     graphiql: true,
 }));
 app.listen(4000);
