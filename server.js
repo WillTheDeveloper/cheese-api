@@ -8,6 +8,11 @@ const fakeDatabase = {
         name: 'Parmesan',
         description: 'Its just a cheese!',
     },
+    2: {
+        id: 2,
+        name: 'Cheddar',
+        description: 'Pretty pog cheese!'
+    }
 }
 
 const cheeseType = new graphql.GraphQLObjectType({
