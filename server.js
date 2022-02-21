@@ -1,9 +1,9 @@
 const express = require('express');
 const {graphqlHTTP} = require('express-graphql');
 const graphql = require('graphql');
-const Database = require('./db')
+const Database = require('./db');
 
-const cheeses = require('./cheese.json')
+// const cheese = require('./cheese.json');
 
 const cheeseType = new graphql.GraphQLObjectType({
     name: 'Cheese',

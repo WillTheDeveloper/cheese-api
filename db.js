@@ -25,6 +25,6 @@ const fakeDatabase = {
         legal: true,
         searches: 69000
     }
-}
+};
 
 module.exports = fakeDatabase;
