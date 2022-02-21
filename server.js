@@ -7,12 +7,11 @@ const fakeDatabase = {
         id: 1,
         name: 'Parmesan',
         description: 'Its just a cheese!',
+        origin: 'Africa',
+        score: 5,
+        legal: true,
+        searches: 50000,
     },
-    2: {
-        id: 2,
-        name: 'Cheddar',
-        description: 'Pretty pog cheese!'
-    }
 }
 
 const cheeseType = new graphql.GraphQLObjectType({
@@ -20,7 +19,11 @@ const cheeseType = new graphql.GraphQLObjectType({
     fields: {
         id: {type: graphql.GraphQLID},
         name: {type: graphql.GraphQLString},
-        description: {type: graphql.GraphQLString}
+        description: {type: graphql.GraphQLString},
+        origin: {type: graphql.GraphQLString},
+        score: {type: graphql.GraphQLInt},
+        legal: {type: graphql.GraphQLBoolean},
+        searches: {type: graphql.GraphQLInt},
     }
 });
 
