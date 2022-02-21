@@ -1,18 +1,7 @@
 const express = require('express');
 const {graphqlHTTP} = require('express-graphql');
 const graphql = require('graphql');
-
-const fakeDatabase = {
-    1: {
-        id: 1,
-        name: 'Parmesan',
-        description: 'Its just a cheese!',
-        origin: 'Africa',
-        score: 5,
-        legal: true,
-        searches: 50000,
-    },
-}
+const Database = require('./db')
 
 const cheeseType = new graphql.GraphQLObjectType({
     name: 'Cheese',
@@ -36,7 +25,7 @@ const queryType = new graphql.GraphQLObjectType({
                 id: {type: graphql.GraphQLID}
             },
             resolve: (_, {id}) => {
-                return fakeDatabase[id];
+                return Database[id];
             }
         }
     }
