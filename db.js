@@ -1,3 +1,11 @@
+// DATABASE STRUCTURE
+// id: integer
+// name: string
+// description: string
+// score: integer (out of 10)
+// legal: boolean
+// searches: integer
+
 const fakeDatabase = {
     1: {
         id: 1,
