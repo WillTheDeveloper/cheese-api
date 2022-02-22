@@ -1,12 +1,4 @@
-// DATABASE STRUCTURE
-// id: integer
-// name: string
-// description: string
-// score: integer (out of 10)
-// legal: boolean
-// searches: integer
-
-const fakeDatabase = {
+const Cheese = {
     1: {
         id: 1,
         name: 'Parmesan',
@@ -27,4 +19,14 @@ const fakeDatabase = {
     }
 };
 
-module.exports = fakeDatabase;
+const Contributor = {
+    1: {
+        id: 1,
+        name: 'William Burton',
+        github: 'WillTheDeveloper',
+        discord: 'WillDotChill#2156',
+        member: true
+    }
+}
+
+module.exports = {Cheese, Contributor};

@@ -1,9 +1,8 @@
 const express = require('express');
 const {graphqlHTTP} = require('express-graphql');
 const graphql = require('graphql');
-const Database = require('./db');
+const {Cheese, Contributor} = require('./db');
 
-// const cheese = require('./cheese.json');
 
 const cheeseType = new graphql.GraphQLObjectType({
     name: 'Cheese',
@@ -18,6 +17,17 @@ const cheeseType = new graphql.GraphQLObjectType({
     }
 });
 
+const contributorType = new graphql.GraphQLObjectType({
+    name: 'Contributor',
+    fields: {
+        id: {type: graphql.GraphQLID},
+        name: {type: graphql.GraphQLString},
+        github: {type: graphql.GraphQLString},
+        discord: {type: graphql.GraphQLString},
+        member: {type: graphql.GraphQLBoolean}
+    }
+})
+
 const queryType = new graphql.GraphQLObjectType({
     name: 'Query',
     fields: {
@@ -27,7 +37,16 @@ const queryType = new graphql.GraphQLObjectType({
                 id: {type: graphql.GraphQLID}
             },
             resolve: (_, {id}) => {
-                return Database[id];
+                return Cheese[id];
+            }
+        },
+        contributor: {
+            type: contributorType,
+            args: {
+                id: {type: graphql.GraphQLID}
+            },
+            resolve: (_, {id}) => {
+                return Contributor[id];
             }
         }
     }
