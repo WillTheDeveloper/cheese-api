@@ -14,6 +14,7 @@ const cheeseType = new graphql.GraphQLObjectType({
         score: {type: graphql.GraphQLInt},
         legal: {type: graphql.GraphQLBoolean},
         searches: {type: graphql.GraphQLInt},
+        repository: {type: graphql.GraphQLString}
     }
 });
 
