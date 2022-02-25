@@ -38,23 +38,35 @@ When you open the web interface, enter the following as an example.
     score
     legal
     searches
+    created_by{
+      name
+      github
+      discord
+      member
+    }
   }
 }
 ```
 
 Which will return a similar output to the following:
 
-```graphql
+```json
 {
   "data": {
     "cheese": {
       "id": "1",
       "name": "Parmesan",
-      "description": "Its just a cheese!",
-      "origin": "Africa",
+      "description": "Parmesan is an Italian hard, granular cheese produced from cow's milk and aged at least 12 months. It is named after the producing areas, the provinces of Reggio Emilia, Parma, the part of Bologna west of the Reno, and Modena; and the part of Mantua on the right/south bank of the Po.",
+      "origin": "Unknown",
       "score": 5,
       "legal": true,
-      "searches": 50000
+      "searches": 50000,
+      "created_by": {
+        "name": "William Burton",
+        "github": "WillTheDeveloper",
+        "discord": "WillDotChill#2156",
+        "member": true
+      }
     }
   }
 }
