@@ -1,3 +1,13 @@
+const Contributor = {
+    1: {
+        id: 1,
+        name: 'William Burton',
+        github: 'WillTheDeveloper',
+        discord: 'WillDotChill#2156',
+        member: true,
+    }
+}
+
 const Cheese = {
     1: {
         id: 1,
@@ -7,7 +17,8 @@ const Cheese = {
         score: 5,
         legal: true,
         searches: 50000,
-        repository: 'https://github.com/cheese-official/parmesan'
+        repository: 'https://github.com/cheese-official/parmesan',
+        created_by: Contributor["1"]
     },
     2: {
         id: 2,
@@ -17,7 +28,8 @@ const Cheese = {
         score: 3,
         legal: true,
         searches: 69000,
-        repository: 'https://github.com/cheese-official/cheddar'
+        repository: 'https://github.com/cheese-official/cheddar',
+        created_by: Contributor["1"]
     },
     3: {
         id: 3,
@@ -27,7 +39,8 @@ const Cheese = {
         score: 4,
         legal: true,
         searches: 55000,
-        repository: 'https://github.com/cheese-official/gorgonzola'
+        repository: 'https://github.com/cheese-official/gorgonzola',
+        created_by: Contributor["1"]
     },
     4: {
         id: 4,
@@ -37,7 +50,8 @@ const Cheese = {
         score: 10,
         legal: true,
         searches: 99999,
-        repository: 'https://github.com/cheese-official/red-leicester'
+        repository: 'https://github.com/cheese-official/red-leicester',
+        created_by: Contributor["1"]
     },
     5: {
         id: 5,
@@ -47,18 +61,11 @@ const Cheese = {
         score: 1,
         legal: false,
         searches: 1,
-        repository: 'https://github.com/cheese-official/casu-marzu'
+        repository: 'https://github.com/cheese-official/casu-marzu',
+        created_by: Contributor["1"]
     }
 };
 
-const Contributor = {
-    1: {
-        id: 1,
-        name: 'William Burton',
-        github: 'WillTheDeveloper',
-        discord: 'WillDotChill#2156',
-        member: true
-    }
-}
+
 
 module.exports = {Cheese, Contributor};

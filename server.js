@@ -4,6 +4,17 @@ const graphql = require('graphql');
 const {Cheese, Contributor} = require('./db');
 
 
+const contributorType = new graphql.GraphQLObjectType({
+    name: 'Contributor',
+    fields: {
+        id: {type: graphql.GraphQLID},
+        name: {type: graphql.GraphQLString},
+        github: {type: graphql.GraphQLString},
+        discord: {type: graphql.GraphQLString},
+        member: {type: graphql.GraphQLBoolean},
+    }
+})
+
 const cheeseType = new graphql.GraphQLObjectType({
     name: 'Cheese',
     fields: {
@@ -14,20 +25,10 @@ const cheeseType = new graphql.GraphQLObjectType({
         score: {type: graphql.GraphQLInt},
         legal: {type: graphql.GraphQLBoolean},
         searches: {type: graphql.GraphQLInt},
-        repository: {type: graphql.GraphQLString}
+        repository: {type: graphql.GraphQLString},
+        created_by: {type: contributorType},
     }
 });
-
-const contributorType = new graphql.GraphQLObjectType({
-    name: 'Contributor',
-    fields: {
-        id: {type: graphql.GraphQLID},
-        name: {type: graphql.GraphQLString},
-        github: {type: graphql.GraphQLString},
-        discord: {type: graphql.GraphQLString},
-        member: {type: graphql.GraphQLBoolean}
-    }
-})
 
 const queryType = new graphql.GraphQLObjectType({
     name: 'Query',
